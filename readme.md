@@ -1,6 +1,6 @@
 ## SGDistanceChecker
 <br>
-This project is inspired from an industry's need to take a directory of postal codes and map out the distance to a fixed postal code
+This project is inspired from an industry's need to take a directory of postal codes and map out the haversine distance to a fixed postal code
 
 ### Documentation of the repo
 - SGDistanceChecker.py: Main program that will output a desired CSV file to your local directory outlining the distance to a reference postal code keyed in from a user
