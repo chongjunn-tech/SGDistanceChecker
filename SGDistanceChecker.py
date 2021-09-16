@@ -36,11 +36,14 @@ def find_lat_long(code):
     
     return code,response_dict['latt'],response_dict['longt']
 
-def prompt_user():
+def prompt_user(df):
     while True:
-        ref=input(' Please key in your desired reference postal code: ')
-        if len(ref)==6 and ref.isnumeric():
-            break         
+        ref=input('Please key in your desired reference postal code: ')
+        if int(ref) in df['Postal Code'].unique():
+            break
+        else:
+            print(f'{ref} is not a valid postal code')
+            continue        
     return ref
 
 #Formula Extracted from
@@ -67,7 +70,7 @@ if __name__=='__main__':
     #Retrieve all postal codes (with its corresponding latitude and longtitude) in Singapore and load it into memory
     df=load_all_postal_codes()
     #Ask the user to input a reference postal code
-    reference_postal_code=prompt_user()
+    reference_postal_code=prompt_user(df)
 
     postal_code,lat,long=find_lat_long(reference_postal_code)
 
